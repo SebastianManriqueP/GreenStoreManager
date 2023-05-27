@@ -76,7 +76,7 @@ public class ListaPlantasAdapter extends RecyclerView.Adapter<ListaPlantasAdapte
         textViewStock.setText("Stock: " +e.getStock());
         /*Cambiar Precio*/
         TextView textViewPrecio = holder.itemView.findViewById(R.id.textView4);
-        textViewStock.setText("Precio: " +e.getPrecio());
+        textViewPrecio.setText("Precio: " +e.getPrecio());
     }
 
     @Override

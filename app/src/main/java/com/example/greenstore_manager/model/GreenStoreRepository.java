@@ -13,4 +13,11 @@ public interface GreenStoreRepository {
 
     @GET("/webServiceGS/plantas/listaConFotos")
     Call<ListaPlanta>getListaPlantasFotos();
+
+    @GET("/webServiceGS/compraS/listaCompras")
+    Call<List<ListaCompra>>getListaComprass();
+
+    @GET("/webServiceGS/personas/listar")
+    Call<List<Persona>>getListaPersonas();
+
 }

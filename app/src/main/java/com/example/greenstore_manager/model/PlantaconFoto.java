@@ -1,8 +1,9 @@
 package com.example.greenstore_manager.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PlantaconFoto {
+public class PlantaconFoto implements Serializable {
 
     private  Planta planta;
 

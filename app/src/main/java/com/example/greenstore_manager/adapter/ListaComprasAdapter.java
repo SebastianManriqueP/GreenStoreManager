@@ -10,19 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.greenstore_manager.R;
+import com.example.greenstore_manager.model.Compra;
+import com.example.greenstore_manager.model.ListaCompra;
 import com.example.greenstore_manager.model.Planta;
 
 import java.util.List;
 
-public class ListaComprasAdapter extends RecyclerView.Adapter<ListaComprasAdapter.PlantaViewHolder> {
-
-    public List<Planta> getListaPlantas() {
-        return listaPlantas;
-    }
-
-    public void setListaPlantas(List<Planta> listaPlantas) {
-        this.listaPlantas = listaPlantas;
-    }
+public class ListaComprasAdapter extends RecyclerView.Adapter<ListaComprasAdapter.CompraViewHolder> {
 
     public Context getContext() {
         return context;
@@ -32,35 +26,55 @@ public class ListaComprasAdapter extends RecyclerView.Adapter<ListaComprasAdapte
         this.context = context;
     }
 
-    private List<Planta> listaPlantas;
+    public List<ListaCompra> getListacompras() {
+        return listacompras;
+    }
+
+    public void setListacompras(List<ListaCompra> listacompras) {
+        this.listacompras = listacompras;
+    }
+
+    private List<ListaCompra> listacompras;
     private Context context;
 
 
     @NonNull
     @Override
-    public ListaComprasAdapter.PlantaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CompraViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_compras,parent,false);
-        return new PlantaViewHolder(view);
+        return new CompraViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListaComprasAdapter.PlantaViewHolder holder, int position) {
-        Planta e = listaPlantas.get(position);
-        holder.planta = e;
+    public void onBindViewHolder(@NonNull ListaComprasAdapter.CompraViewHolder holder, int position) {
+        ListaCompra e = listacompras.get(position);
+        holder.compra = e;
 
-        TextView textViewFirstName = holder.itemView.findViewById(R.id.textCompra);
-        textViewFirstName.setText(e.getNombreplanta());
+        //*Cambiar nombre cliente*//
+        TextView textViewFirstName = holder.itemView.findViewById(R.id.textView3);
+        textViewFirstName.setText("Cliente: "+e.getCompra().getIdCliente().getNombres()+" "+e.getCompra().getIdCliente().getApellidos());
+        //*Cambiar total*//
+        TextView textViewTotal = holder.itemView.findViewById(R.id.textView4);
+        textViewTotal.setText("Total: S/."+e.getCompra().getTotal());
+        //*Cambiar Estado*//
+        TextView textViewEstado = holder.itemView.findViewById(R.id.textView2);
+        if(e.getCompra().getEstado().equals("V")) {
+            textViewEstado.setText("Estado: Por verificar" );
+        }else{
+            textViewEstado.setText("Estado: En delivery" );
+        }
     }
+
 
     @Override
     public int getItemCount() {
-        return listaPlantas.size();
+        return listacompras.size();
     }
 
-    public class PlantaViewHolder extends RecyclerView.ViewHolder {
-        Planta planta;
+    public static class CompraViewHolder extends RecyclerView.ViewHolder {
+        ListaCompra compra;
 
-        public PlantaViewHolder(@NonNull View itemView) {
+        public CompraViewHolder(@NonNull View itemView) {
             super(itemView);
         }
     }

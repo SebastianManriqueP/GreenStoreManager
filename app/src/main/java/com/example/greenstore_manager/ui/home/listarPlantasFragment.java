@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-    import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.greenstore_manager.R;
 import com.example.greenstore_manager.adapter.ListaPlantasAdapter;
@@ -34,10 +34,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class listarPlantasFragment extends Fragment {
 
-private FragmentListarplantasBinding binding;
+    private FragmentListarplantasBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
+                             ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
@@ -95,7 +95,7 @@ private FragmentListarplantasBinding binding;
         return root;
     }
 
-@Override
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;

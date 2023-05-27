@@ -15,7 +15,7 @@ public class Planta {
 
     private String ambienteRec;
 
-    private Integer plantaactiva;
+    private Boolean plantaactiva;
 
     private String descripcion;
 
@@ -61,11 +61,11 @@ public class Planta {
         this.ambienteRec = ambienteRec;
     }
 
-    public Integer getPlantaactiva() {
+    public Boolean getPlantaactiva() {
         return plantaactiva;
     }
 
-    public void setPlantaactiva(Integer plantaactiva) {
+    public void setPlantaactiva(Boolean plantaactiva) {
         this.plantaactiva = plantaactiva;
     }
 
